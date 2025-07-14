@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Fingerprint Collector</title>
+  <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
+</head>
+<body>
+  <h2>Device Fingerprint Collector</h2>
+  <p>Please open this page on your official device(s) and copy the fingerprint ID shown below:</p>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    FingerprintJS.load().then(fp => {
+      fp.get().then(result => {
+        document.getElementById('output').textContent = result.visitorId;
+      });
+    });
+  </script>
+</body>
+</html>
